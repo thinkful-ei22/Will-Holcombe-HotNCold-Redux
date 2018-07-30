@@ -47,6 +47,8 @@ handleSubmit(guess){
     this.setState({ count: this.state.count+1 });
 }
 
+
+
 resetGameState() {
     const newState = Object.assign({}, {
         randomNum: numGenerator(),
@@ -57,10 +59,20 @@ resetGameState() {
     this.setState(newState);
 }
 
+handleShowWhatInfo() {
+    this.setState({
+        whatInfo: !this.state.whatInfo
+    })
+
+
+}
+
     render () {
     return (
         <div>
-            <Header resetGame={() => this.resetGameState()}/>
+            <Header resetGame={() => this.resetGameState()}
+                    handleShowWhatInfo ={() => this.handleShowWhatInfo()}
+                    visibility = {this.state.whatInfo} />
             <div className='main-box'>
                 <GuessSection sendNumToState={guess => this.handleSubmit(guess)}  feedback={ this.state.feedback } />
                 <GuessCount count={ this.state.count } />

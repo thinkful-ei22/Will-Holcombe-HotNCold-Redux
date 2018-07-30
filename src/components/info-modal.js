@@ -4,6 +4,7 @@ import './info-modal.css';
 
 export default function InfoModal(props) {
     return (
+        <section id="what" tabIndex="-1" style={{'display': (props.visible)? 'block': 'none'}}>
         <div className="overlay" id="modal">
             <div className="content">
                 <h3>What do I do?</h3>
@@ -19,5 +20,6 @@ export default function InfoModal(props) {
                 </div>
             </div>
         </div>
+        </section>
     );
-}
+};

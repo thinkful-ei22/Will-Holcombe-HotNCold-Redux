@@ -7,17 +7,22 @@ import './index.css';
 
 import Game from './components/game';
 
-import { enterGuess } from './actions';
-
 import store from './components/store';
+import { enterGuess, newGame, showWhatInfo } from './actions';
 
 
+
+console.log(store.getState());
+store.dispatch(enterGuess("5"));
+
+store.dispatch(newGame());
+console.log(store.getState());
+
+store.dispatch(showWhatInfo());
+console.log(store.getState());
 
 ReactDOM.render(
     <Game />,
     document.getElementById('root')
 );
 
-console.log(store.getState());
-store.dispatch(enterGuess(5));
-console.log(store.getState());
